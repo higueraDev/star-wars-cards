@@ -2,22 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { People } from '../models/people';
+import { AllPeople } from '../models/all-people';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PeopleService {
-  private peopleLength = 82;
 
   constructor(private http: HttpClient) {}
 
-  private getRandomNumber() {
-    return Math.round(Math.random() * this.peopleLength) || 1;
+  public getPeople() {
+    return this.http.get<AllPeople>(environment.api + '/people');
   }
 
-  public getOneRandomPerson() {
-    return this.http.get<People>(
-      environment.api + '/people/' + this.getRandomNumber()
-    );
+  public getPeopleById(id: number) {
+    return this.http.get<People>(environment.api + '/people/' + id);
   }
 }

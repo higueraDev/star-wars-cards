@@ -9,6 +9,7 @@ import { People } from '../../models/people';
 })
 export class CardComponent {
   @Input() card: Card;
+  @Input() selected: boolean = false;
 
   get content() {
     const {

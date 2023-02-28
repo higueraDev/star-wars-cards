@@ -1,6 +1,18 @@
-.card-wrapper{
-
+.card-wrapper {
   @media (min-width: 768px) {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (min-width:1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  &:not(:last-child) {
+    @media (min-width: 768px) {
+      margin-right: 10px;;
+    }
   }
 }
