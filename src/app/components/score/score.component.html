@@ -1,1 +1,5 @@
-<mat-chip class="chip" *ngIf="score">{{score.title}} : {{score.count}}</mat-chip>
+<mat-chip-listbox>
+  <mat-chip-option [color]="getCountColor(score.count)" selected class="chip" *ngFor="let score of scores"
+    >{{ score.title }} : {{ score.count }}</mat-chip-option
+  >
+</mat-chip-listbox>
