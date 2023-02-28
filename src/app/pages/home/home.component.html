@@ -1,0 +1,7 @@
+<header><h1>Star Wars - Cards Game</h1></header>
+<main>
+  <app-score *ngFor="let score of scores" [score]="score"></app-score>
+  <div class="card-wrapper">
+    <app-card *ngFor="let card of cards" [card]="card"></app-card>
+  </div>
+</main>
