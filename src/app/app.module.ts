@@ -8,14 +8,18 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ScoreComponent } from './components/score/score.component';
-
-// Angular Material
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
+import { ButtonComponent } from './components/button/button.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent, HomeComponent, ScoreComponent],
-  imports: [BrowserModule, MatCardModule, MatChipsModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    CardComponent,
+    HomeComponent,
+    ScoreComponent,
+    ButtonComponent,
+  ],
+  imports: [BrowserModule, HttpClientModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent],
 })
