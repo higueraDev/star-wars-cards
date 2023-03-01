@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ScoreComponent } from './components/score/score.component';
 import { ButtonComponent } from './components/button/button.component';
 import { MaterialModule } from './material/material.module';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MaterialModule } from './material/material.module';
     HomeComponent,
     ScoreComponent,
     ButtonComponent,
+    LoaderComponent,
   ],
   imports: [BrowserModule, HttpClientModule, MaterialModule],
   providers: [],

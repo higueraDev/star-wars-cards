@@ -1,15 +1,32 @@
-@import '/src/styles/variables';
-.header,.main{
+@import "/src/styles/variables";
+
+.header,
+.main {
   padding: 15px 10px;
 
-  @media (min-width:1200px) {
+  @media (min-width: 1200px) {
     padding: 20px;
   }
 }
 
-.header{
+.header {
   background-color: $primary;
   color: white;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  height: calc(100% - 78px);
+
+  @media (min-width: 1200px) {
+    height: calc(100% - 88px);
+  }
+}
+
+.section{
+  max-width: 1200px;
+  animation: fade 300ms ease;
 }
 
 .card-wrapper {
@@ -19,7 +36,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
-  @media (min-width:1200px) {
+  @media (min-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -27,7 +44,13 @@
 .card {
   &:not(:last-child) {
     @media (min-width: 768px) {
-      margin-right: 10px;;
+      margin-right: 10px;
     }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
   }
 }

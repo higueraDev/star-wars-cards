@@ -1,13 +1,16 @@
 <header class="header"><h1>Star Wars - Cards Game</h1></header>
 <main class="main">
-  <app-score [scores]="scores"></app-score>
-  <div *ngIf="cardsFilled" class="card-wrapper">
-    <app-card
-      *ngFor="let card of cards"
-      [card]="card"
-      [selected]="card.title === winner"
-      class="card"
-    ></app-card>
-  </div>
-  <app-button text="Play Again!" (click)="loadGame()"></app-button>
+  <app-loader class="loader" *ngIf="!cardsFilled;"></app-loader>
+  <section class="section" *ngIf="cardsFilled">
+    <app-score [scores]="scores"></app-score>
+    <div *ngIf="cardsFilled" class="card-wrapper">
+      <app-card
+        *ngFor="let card of cards"
+        [card]="card"
+        [selected]="card.title === winner"
+        class="card"
+      ></app-card>
+    </div>
+    <app-button text="Play Again!" (click)="loadGame()"></app-button>
+  </section>
 </main>
