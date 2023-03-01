@@ -1,4 +1,19 @@
+@import '/src/styles/variables';
+.header,.main{
+  padding: 15px 10px;
+
+  @media (min-width:1200px) {
+    padding: 20px;
+  }
+}
+
+.header{
+  background-color: $primary;
+  color: white;
+}
+
 .card-wrapper {
+  margin: 20px 0;
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
