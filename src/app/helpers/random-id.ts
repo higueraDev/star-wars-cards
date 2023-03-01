@@ -1,5 +1,5 @@
-export default class RandomId {
-  static getId(length: number) {
+export default class RandomNumber {
+  static getNumber(length: number) {
     return Math.round(Math.random() * length) || 1;
   }
 }

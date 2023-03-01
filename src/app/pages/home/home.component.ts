@@ -10,7 +10,7 @@ export class HomeComponent {
   constructor(private cardsService: CardsService) {}
 
   public loadGame() {
-    this.cardsService.loadGame();
+    this.cardsService.selectResource();
   }
 
   public get cardsFilled() {
