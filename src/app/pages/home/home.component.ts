@@ -1,9 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Card } from '../../models/card';
-import { PeopleService } from '../../services/people.service';
-import { People } from '../../models/people';
-import { Score } from '../../models/score';
-import RandomId from '../../helpers/random-id';
+import { Component } from '@angular/core';
 import { CardsService } from '../../services/cards.service';
 
 @Component({

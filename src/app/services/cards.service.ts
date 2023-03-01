@@ -16,7 +16,7 @@ export class CardsService {
   public scores: Score[] = [];
   public winner: string = '';
 
-  constructor(private peopleService: PeopleService) {
+  constructor(private peopleService: PeopleService ) {
     this.setScores();
     this.getPeopleLength();
   }

@@ -6,7 +6,7 @@ export interface People {
   skin_color: string;
   eye_color: string;
   birth_year: string;
-  gender: string;
+  gender: Gender;
   homeworld: string;
   films: string[];
   species: string[];
@@ -15,4 +15,10 @@ export interface People {
   created: string;
   edited: string;
   url: string;
+}
+
+enum Gender {
+  Female = 'female',
+  Male = 'male',
+  NA = 'n/a',
 }
