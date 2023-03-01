@@ -10,6 +10,14 @@ export class CardComponent {
   @Input() card: Card;
   @Input() selected: boolean = false;
 
+  private formatStringNumber(value: string) {
+    const numberValue = Number(value);
+    const formattedValue = Number.isNaN(numberValue)
+      ? '-'
+      : numberValue.toLocaleString('en-US');
+    return formattedValue;
+  }
+
   get content() {
     if (this.card.peopleContent) {
       const {
@@ -36,8 +44,8 @@ export class CardComponent {
         cargo_capacity,
         ...content
       } = this.card.starshipContent;
-      const credits = Number(cost_in_credits || '0').toLocaleString('en-US');
-      const capacity = Number(cargo_capacity || '0').toLocaleString('en-US');
+      const credits = this.formatStringNumber(cost_in_credits);
+      const capacity = this.formatStringNumber(cargo_capacity);
       return { ...content, credits, capacity };
     }
 
