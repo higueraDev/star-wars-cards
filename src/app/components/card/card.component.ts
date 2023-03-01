@@ -36,8 +36,8 @@ export class CardComponent {
         cargo_capacity,
         ...content
       } = this.card.starshipContent;
-      const credits = Number(cost_in_credits || '').toLocaleString('en-US');
-      const capacity = Number(cargo_capacity || '').toLocaleString('en-US');
+      const credits = Number(cost_in_credits || '0').toLocaleString('en-US');
+      const capacity = Number(cargo_capacity || '0').toLocaleString('en-US');
       return { ...content, credits, capacity };
     }
 
