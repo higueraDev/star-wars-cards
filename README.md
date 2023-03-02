@@ -23,6 +23,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 Run `npm run e2e:install` to install the e2e requirements
+
 Run `npm run e2e` to execute e2e tests via [Playwright](https://playwright.dev/)
 
 ## Further help
