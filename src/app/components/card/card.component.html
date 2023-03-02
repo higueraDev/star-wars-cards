@@ -3,8 +3,13 @@
     <mat-card-title> {{ card.title }} </mat-card-title>
   </mat-card-header>
   <mat-card-content *ngIf="card.content">
-    <p class="card__property" *ngFor="let property of card.content | keyvalue">
-      <span>{{ (property.key | titlecase).replaceAll("_", " ") }} </span>: {{ property.value }}
+    <p
+      class="card__property"
+      [class.highlight]="property.key === card.feat.title"
+      *ngFor="let property of card.content | keyvalue"
+    >
+      <span>{{ (property.key | titlecase).replaceAll("_", " ") }} </span>:
+      {{ property.value }}
     </p>
   </mat-card-content>
 </mat-card>
