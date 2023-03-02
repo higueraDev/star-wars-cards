@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Card } from '../../models/card';
-import { formatNumber } from '@angular/common';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
