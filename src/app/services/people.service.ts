@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { People } from '../models/people';
-import { AllPeople } from '../models/all-people';
+import { PeopleDTO } from '../models/people-dto';
+import { AllPeopleDTO } from '../models/all-people-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +12,10 @@ export class PeopleService {
   constructor(private http: HttpClient) {}
 
   public getPeople() {
-    return this.http.get<AllPeople>(environment.api + '/people');
+    return this.http.get<AllPeopleDTO>(environment.api + '/people');
   }
 
   public getPeopleById(id: number) {
-    return this.http.get<People>(environment.api + '/people/' + id);
+    return this.http.get<PeopleDTO>(environment.api + '/people/' + id);
   }
 }

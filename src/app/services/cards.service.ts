@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import RandomNumber from '../helpers/random-id';
+import RandomNumber from '../helpers/random-number';
 import { Card } from '../models/card';
-import { People } from '../models/people';
+import { PeopleDTO } from '../models/people-dto';
 import { Score } from '../models/score';
 import { PeopleService } from './people.service';
 import { StarshipsService } from './starships.service';
 import { Resources } from '../models/resources';
 import { firstValueFrom } from 'rxjs';
-import { Starship } from '../models/starship';
+import { StarshipDTO } from '../models/starship-dto';
+import MapCards from '../helpers/map-cards';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardsService {
   private readonly resources: number = 2;
-  private players: number = 2;
+  private readonly players: number = 2;
   private peopleLength: number;
   private starshipsLength: number;
   private resourceSelected: Resources;
@@ -29,6 +30,15 @@ export class CardsService {
   ) {
     this.setScores();
     this.loadResources();
+  }
+
+  private setScores() {
+    for (let index = 0; index < this.players; index++) {
+      this.scores[index] = {
+        title: 'Player ' + (index + 1),
+        count: 0,
+      };
+    }
   }
 
   private async loadResources() {
@@ -56,7 +66,7 @@ export class CardsService {
     this.loadGame();
   }
 
-  get isPeople() {
+  private get isPeople() {
     return this.resourceSelected === Resources.people;
   }
 
@@ -95,14 +105,10 @@ export class CardsService {
     return RandomNumber.getNumber(length);
   }
 
-  private createCard(data: People | Starship) {
-    const card: Card = {
-      title: 'Player ' + (this.cards.length + 1),
-    };
-
-    this.isPeople
-      ? (card.peopleContent = data as People)
-      : (card.starshipContent = data as Starship);
+  private createCard(data: unknown) {
+    const card: Card = this.isPeople
+      ? MapCards.generatePeopleCard(this.title, data as PeopleDTO)
+      : MapCards.generateStarshipCard(this.title, data as StarshipDTO);
 
     this.cards.push(card);
 
@@ -111,22 +117,18 @@ export class CardsService {
     }
   }
 
+  private get title() {
+    return 'Player ' + (this.cards.length + 1);
+  }
+
   public get cardsFilled() {
     return this.cards.length === this.players;
   }
 
   private setWinner() {
     const sortedCards = this.sortCards();
-    let topValue1, topValue2;
-
-    if (this.isPeople) {
-      topValue1 = sortedCards[0].peopleContent?.mass;
-      topValue2 = sortedCards[1].peopleContent?.mass;
-    } else {
-      topValue1 = sortedCards[0].starshipContent?.crew;
-      topValue2 = sortedCards[1].starshipContent?.crew;
-    }
-
+    const topValue1 = sortedCards[0].feat.value;
+    const topValue2 = sortedCards[1].feat.value;
     const topPlayer = sortedCards[0].title;
 
     this.winner = topValue1 !== topValue2 ? topPlayer : '';
@@ -135,32 +137,15 @@ export class CardsService {
 
   private sortCards() {
     const cards = this.cards.slice();
-
-    return cards.sort((a: Card, b: Card) => {
-      let _a, _b;
-
-      if (this.isPeople) {
-        _a = Number(a.peopleContent?.mass.replace(',', '')) || 0;
-        _b = Number(b.peopleContent?.mass.replace(',', '')) || 0;
-      } else {
-        _a = Number(a.starshipContent?.crew.replace(',', '')) || 0;
-        _b = Number(b.starshipContent?.crew.replace(',', '')) || 0;
-      }
+    return cards.sort((a, b) => {
+      const _a = a.feat.value;
+      const _b = b.feat.value;
 
       if (_b > _a) return 1;
       if (_b < _a) return -1;
 
       return 0;
     });
-  }
-
-  private setScores() {
-    for (let index = 0; index < this.players; index++) {
-      this.scores[index] = {
-        title: 'Player ' + (index + 1),
-        count: 0,
-      };
-    }
   }
 
   private updateScores() {

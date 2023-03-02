@@ -1,8 +1,6 @@
-import { People } from './people';
-import { Starship } from './starship';
-
+import { Feat } from './feat';
 export interface Card {
   title: string;
-  peopleContent?: People;
-  starshipContent?: Starship;
+  content: unknown;
+  feat: Feat;
 }

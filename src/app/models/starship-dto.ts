@@ -1,5 +1,5 @@
 
-export interface Starship {
+export interface StarshipDTO {
   MGLT:                   string;
   cargo_capacity:         string;
   consumables:            string;
