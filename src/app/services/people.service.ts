@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { PeopleDTO } from '../models/people-dto';
-import { AllPeopleDTO } from '../models/all-people-dto';
+import { PeopleDTO } from '../models/dtos/people-dto';
+import { AllPeopleDTO } from '../models/dtos/all-people-dto';
 
 @Injectable({
   providedIn: 'root',

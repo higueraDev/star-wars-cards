@@ -1,4 +1,4 @@
-import { test, expect, Page, Locator } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
@@ -31,11 +31,10 @@ test.describe('First Load', () => {
   test('Should show at least MASS or CREW properties on both cards', async ({
     page,
   }) => {
-    const massLocator = page.locator('text=/MASS/');
-    const crewLocator = page.locator('text=/CREW/');
+    const massLocator = page.locator('text=/Mass/');
+    const crewLocator = page.locator('text=/Crew/');
 
     const { massVisible, crewVisible } = await waitForCards(
-      page,
       massLocator,
       crewLocator,
       'Checking Properties:'
@@ -56,11 +55,10 @@ test.describe('Play Again', () => {
   });
 
   test('Should add class selected to winner card', async ({ page }) => {
-    const massLocator = page.locator('text=/MASS/');
-    const crewLocator = page.locator('text=/CREW/');
+    const massLocator = page.locator('text=/Mass/');
+    const crewLocator = page.locator('text=/Crew/');
 
     const { massVisible, crewVisible } = await waitForCards(
-      page,
       massLocator,
       crewLocator,
       'Winner Cards:'
@@ -83,7 +81,6 @@ test.describe('Play Again', () => {
 });
 
 async function waitForCards(
-  page: Page,
   massLocator: Locator,
   crewLocator: Locator,
   message: string

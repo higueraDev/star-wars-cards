@@ -1,8 +1,8 @@
-import { PeopleDTO } from '../models/people-dto';
+import { PeopleDTO } from '../models/dtos/people-dto';
 import { PeopleCard } from '../models/people-card';
 import { PeopleContent } from '../models/people-content';
 import { StarshipContent } from '../models/starship-content';
-import { StarshipDTO } from '../models/starship-dto';
+import { StarshipDTO } from '../models/dtos/starship-dto';
 import { StarshipCard } from '../models/starship-card';
 import FormatNumber from './format-number';
 

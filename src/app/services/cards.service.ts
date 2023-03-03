@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import RandomNumber from '../helpers/random-number';
 import { Card } from '../models/card';
-import { PeopleDTO } from '../models/people-dto';
+import { PeopleDTO } from '../models/dtos/people-dto';
 import { Score } from '../models/score';
 import { PeopleService } from './people.service';
 import { StarshipsService } from './starships.service';
 import { Resources } from '../models/resources';
 import { firstValueFrom } from 'rxjs';
-import { StarshipDTO } from '../models/starship-dto';
+import { StarshipDTO } from '../models/dtos/starship-dto';
 import MapCards from '../helpers/map-cards';
 
 @Injectable({

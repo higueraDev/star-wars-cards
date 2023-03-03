@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { AllStarshipsDTO } from '../models/all-starships-dto';
-import { StarshipDTO } from '../models/starship-dto';
+import { AllStarshipsDTO } from '../models/dtos/all-starships-dto';
+import { StarshipDTO } from '../models/dtos/starship-dto';
 
 @Injectable({
   providedIn: 'root',

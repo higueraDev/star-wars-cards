@@ -1,4 +1,4 @@
-import { PeopleDTO } from './people-dto';
+import { PeopleDTO } from './dtos/people-dto';
 
 export interface PeopleContent
   extends Omit<

@@ -1,4 +1,4 @@
-import { StarshipDTO } from './starship-dto';
+import { StarshipDTO } from './dtos/starship-dto';
 
 export interface StarshipContent
   extends Omit<

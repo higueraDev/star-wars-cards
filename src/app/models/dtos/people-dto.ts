@@ -1,3 +1,5 @@
+import { Gender } from "../enums/gender";
+
 export interface PeopleDTO {
   name: string;
   height: string;
@@ -15,10 +17,4 @@ export interface PeopleDTO {
   created: string;
   edited: string;
   url: string;
-}
-
-enum Gender {
-  Female = 'female',
-  Male = 'male',
-  NA = 'n/a',
 }
